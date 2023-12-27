@@ -1,0 +1,53 @@
+version: 2
+
+models:
+  - name: dim_clientes
+    description: "Dimensão: Clientes, traz o nome, endereço e o tipo de cartão de crédito dos clientes da AW"
+    columns:
+      - name: pk_cliente
+        description: Chave primária de identificação do cliente
+        tests:
+          - unique
+          - not null
+
+      - name: id_pessoa
+        description: FK - identificação da pessoa
+
+      - name: id_loja
+        description: FK - identificação da loja
+
+      - name: pessoa_nome_completo
+        description: Nome completo da pessoa, formado pelo nome + sobrenome
+
+      - name: id_territorio
+        description: Identificação do território do cliente
+
+      - name: id_endereco
+        description: FK - identificação do endereço
+
+      - name: endereco_completo
+        description: Endereço completo do cliente, formado por ambas as linhas do endereço
+
+      - name: endereco_cidade
+        description: Cidade onde o cliente mora
+
+      - name: cep
+        description: CEP do cliente
+
+      - name: codigo_estado
+        description: Abreviação do estado onde o cliente mora
+
+      - name: codigo_pais
+        description: Abreviação do país onde o cliente mora
+
+      - name: nome_estado
+        description: Nome do estado onde o cliente mora
+
+      - name: nome_pais
+        description: Nome do país onde o cliente mora
+
+      - name: id_cartao
+        description: FK - Identificação do cartão de crédito
+
+      - name: tipo_cartao
+        description: Tipo do cartão de crédito do cliente.

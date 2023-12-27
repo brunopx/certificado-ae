@@ -1,0 +1,88 @@
+version: 2
+sources:
+  - name: sap_adw
+    description: Fonte do SAP da Adventure Works
+    schema: sap_adw
+    tables:
+      - name: creditcard
+        description: Tabela de Cartões de crédito
+        columns:
+          - name: creditcardid
+            description: ID do cartão deve ser único e não nulo.
+            tests:
+              - unique
+              - not_null
+      - name: personcreditcard
+        description: Tabela de Cartões de crédito + Pessoa
+        columns:
+          - name: businessentityid
+            description: ID da pessoa deve ser único e não nulo.
+            tests:
+              - unique
+              - not_null
+          - name: creditcardid
+            description: ID do cartão deve ser único e não nulo.
+            tests:
+              - unique
+              - not_null     
+      - name: customer
+        description: Tabela de clientes da AW
+        columns:
+          - name: customerid
+            description: ID do cliente deve ser único e não nulo. Quando o ID da pessoa é nulo, o ID da loja não é e vice-versa.
+            tests:
+              - unique
+              - not_null
+      - name: person
+        description: Tabela de pessoas clientes da AW
+        columns:
+          - name: businessentityid
+            description: ID da pessoa deve ser único e não nulo.
+            tests:
+              - unique
+              - not_null
+      - name: store
+        description: Tabela de lojas clientes da AW
+        columns:
+          - name: businessentityid
+            description: ID da loja deve ser único e não nulo.
+            tests:
+              - unique
+              - not_null
+      - name: address
+        description: Tabela de endereços de pessoas clientes da AW
+        columns:
+          - name: addressid
+            description: ID do endereço deve ser único e não nulo.
+            tests:
+              - unique
+              - not_null
+      - name: stateprovince
+        description: Tabela de estados dos enderecos de pessoas clientes da AW
+        columns:
+          - name: stateprovinceid
+            description: ID do estado deve ser único e não nulo.
+            tests:
+              - unique
+              - not_null
+      - name: countryregion
+        description: Tabela de países dos enderecos de pessoas clientes da AW
+        columns:
+          - name: countryregioncode
+            description: ID do país deve ser único e não nulo.
+            tests:
+              - unique
+              - not_null
+      - name: businessentityaddress
+        description: Tabela de Entidade de Negócio + Endereco
+        columns:
+          - name: businessentityid
+            description: ID da business entity deve ser único e não nulo.
+            tests:
+              - unique
+              - not_null
+          - name: addressid
+            description: ID do end deve ser único e não nulo.
+            tests:
+              - unique
+              - not_null     
