@@ -1,0 +1,46 @@
+version: 2
+
+models:
+  - name: dim_produtos
+    description: "Dimensão: produtos, traz atributos gerais dos produtos vendidos pela AW"
+    columns:
+      - name: id_produto
+        description: Chave primária de identificação do produto
+        tests:
+          - unique
+          - not_null
+
+      - name: nome_produto
+        description: Nome do produto vendido
+
+      - name: numero_produto
+        description: Número do produto vendido
+
+      - name: cor_produto
+        description: Cor do produto
+
+      - name: custo_padrao
+        description: Custo padrão do produto
+
+      - name: preco_lista
+        description: Preço de lista do produto
+
+      - name: tamanho_produto
+        description: Tamanho do produto. Pode ser S (pequeno), M (médio), L (grande) ou XL (extra grande). Ou pode ser numérico, nesse caso consultar a unidade de medida.
+
+      - name: unidade_medida_tamanho
+        description: Unidade de medida do tamanho do produto.
+      
+      - name: unidade_medida_peso
+        description: Unidade de medida do peso do produto. Pode ser gramas ou libras por exemplo.
+
+      - name: peso_produto
+        description: Valor numérico do peso do produto. Consultar unidade de medida na coluna unidade_medida_peso.
+
+
+
+
+
+
+
+
