@@ -81,3 +81,19 @@ sources:
             tests:
               - unique
               - not_null
+      - name: salesorderheader
+        description: Tabela de Vendas da AW. Cada linha é uma venda distinta.
+        columns:
+          - name: salesorderid
+            description: ID da venda deve ser único e não nulo.
+            tests:
+              - unique
+              - not_null
+      - name: salesorderdetail
+        description: Tabela de Vendas da AW. Cada venda pode aparecer mais de uma vez. A pk é salesorderdetail, que se refere a uma venda-produto.
+        columns:
+          - name: salesorderdetailid
+            description: ID da venda-produto deve ser único e não nulo.
+            tests:
+              - unique
+              - not_null
