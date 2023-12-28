@@ -1,0 +1,20 @@
+version: 2
+
+models:
+  - name: dim_cartoes
+    description: "Dimensão: cartões, traz o tipo de cartão de crédito dos clientes da AW"
+    columns:
+      - name: id_cartao
+        description: Chave primária de identificação do cartão
+        tests:
+          - unique
+          - not_null
+
+      - name: id_negocio
+        description: Identificação do cliente
+
+      - name: id_loja
+        description: FK - identificação da loja
+
+      - name: tipo_cartao
+        description: Tipo do cartão de crédito usado pelo cliente da AW

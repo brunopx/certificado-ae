@@ -73,16 +73,11 @@ sources:
             tests:
               - unique
               - not_null
-      - name: businessentityaddress
-        description: Tabela de Entidade de Negócio + Endereco
+      - name: product
+        description: Tabela de Produtos vendidos pela AW
         columns:
-          - name: businessentityid
-            description: ID da business entity deve ser único e não nulo.
+          - name: productid
+            description: ID do produto deve ser único e não nulo.
             tests:
               - unique
               - not_null
-          - name: addressid
-            description: ID do end deve ser único e não nulo.
-            tests:
-              - unique
-              - not_null     

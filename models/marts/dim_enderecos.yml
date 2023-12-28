@@ -1,0 +1,32 @@
+version: 2
+
+models:
+  - name: dim_enderecos
+    description: "Dimensão: endereços, traz o endereço completo (cidade, estado, país) usado nas vendas da AW"
+    columns:
+      - name: id_endereco
+        description: Chave primária de identificação do endereço
+        tests:
+          - unique
+          - not_null
+
+      - name: endereco_completo
+        description: Endereço completo do cliente, formado por ambas as linhas do endereço
+
+      - name: endereco_cidade
+        description: Cidade onde o cliente mora
+
+      - name: cep
+        description: CEP do cliente
+
+      - name: codigo_estado
+        description: Abreviação do estado onde o cliente mora
+
+      - name: codigo_pais
+        description: Abreviação do país onde o cliente mora
+
+      - name: nome_estado
+        description: Nome do estado onde o cliente mora
+
+      - name: nome_pais
+        description: Nome do país onde o cliente mora
