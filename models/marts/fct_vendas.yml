@@ -4,14 +4,20 @@ models:
   - name: fct_vendas
     description: "Fato: vendas, traz as vendas da AW de forma completa. Informa produtos, quantidades, valores, clientes, endereços, cartões de crédito."
     columns:
-      - name: sk_venda_detalhe
+      - name: pk_venda_produto_motivo
+        description: Chave primária de identificação formada pela concat de venda e produto e motivo
+        tests:
+          - unique
+          - not_null
+      
+      - name: sk_venda_produto
         description: Chave primária de identificação formada pela concat de venda e produto
         tests:
           - unique
           - not_null
 
       - name: id_venda_detalhe
-        description: Escrever
+        description: ID de venda + produto direto do SAP
 
       - name: id_venda
         description: Identificador da venda
@@ -21,15 +27,9 @@ models:
 
       - name: id_produto
         description: Identificador do produto
-
-      - name: id_cartao
-        description: Identificador do Cartão
-
-      - name: id_endereco_fatura
-        description: Identificador do Endereço de faturamento
-
-      - name: id_endereco_entrega
-        description: Identificador do Endereço de entrega
+      
+      - name: id_motivo
+        description: Identificador do motivo
 
       - name: qtde_produto
         description: Qtde de produtos comprados (refere-se somente ao respectivo produto da linha)
@@ -43,17 +43,8 @@ models:
       - name: data_venda
         description: Data da venda
 
-      - name: prazo_venda
-        description: Data prazo da venda
-
-      - name: dt_envio_venda
-        description: Data de envio dos produtos vendidos
-
       - name: status_venda
         description: Status da venda
-
-      - name: is_online
-        description: Se a venda foi online, true. Se não, false.
 
       - name: subtotal
         description: Subtotal da venda (refere-se a todos os produtos que compoem a venda)
@@ -70,20 +61,8 @@ models:
       - name: tipo_cartao
         description: Tipo do cartão usado no pagamento
 
-      - name: endereco_completo
-        description: Endereço do cliente
-
       - name: endereco_cidade
         description: Cidade do cliente
-
-      - name: cep
-        description: CEP do cliente
-
-      - name: codigo_estado
-        description: Abreviação do estado do cliente
-
-      - name: codigo_pais
-        description: Abreviação do país do cliente Escrever
 
       - name: nome_estado
         description: Nome do estado do cliente
@@ -94,26 +73,29 @@ models:
       - name: nome_produto
         description: Nome do produto vendido
 
-      - name: numero_produto
-        description: Número do produto vendido
+      - name: motivo
+        description: Motivo da venda
 
-      - name: cor_produto
-        description: Cor do produto vendido
+      - name: tipo_motivo
+        description: Tipo do motivo da venda
+      
+      - name: qtde_produto_parc
+        description: Qtde de produtos comprados (Considera a contribuição de cada linha no total da venda/produto). Deve ser usado ao somar essa coluna individualmente.
 
-      - name: custo_padrao
-        description: Custo padrão do produto vendido
+      - name: preco_unitario_parc
+        description: Preço unitário do produto (Considera a contribuição de cada linha no total da venda/produto). Deve ser usado ao somar essa coluna individualmente.
 
-      - name: preco_lista
-        description: Preço lista do produto vendido
+      - name: desconto_preco_unitario_parc
+        description: Desconto aplicado sobre o preço unitário do produto (Considera a contribuição de cada linha no total da venda/produto). Deve ser usado ao somar essa coluna individualmente.
 
-      - name: tamanho_produto
-        description: Tamanho do produto vendido. Pode ser S (pequeno), M (médio), L (grande) ou XL (extra grande). Ou pode ser numérico, nesse caso consultar a unidade de medida.
+      - name: subtotal_parc
+        description: Subtotal da venda (Considera a contribuição de cada linha no total da venda/produto). Deve ser usado ao somar essa coluna individualmente.
 
-      - name: unidade_medida_tamanho
-        description: Unidade de medida do tamanho do produto.
+      - name: taxa_venda_parc
+        description: Taxa da venda (Considera a contribuição de cada linha no total da venda/produto). Deve ser usado ao somar essa coluna individualmente.
 
-      - name: unidade_medida_peso
-        description: Unidade de medida do peso do produto. Pode ser gramas ou libras por exemplo.
+      - name: frete_venda_parc
+        description: Frete da venda (Considera a contribuição de cada linha no total da venda/produto). Deve ser usado ao somar essa coluna individualmente.
 
-      - name: peso_produto
-        description: Valor numérico do peso do produto. Consultar unidade de medida na coluna unidade_medida_peso.
+      - name: valor_total_parc
+        description: Valor total da venda, soma de subtotal + taxa + frete (Considera a contribuição de cada linha no total da venda/produto). Deve ser usado ao somar essa coluna individualmente.

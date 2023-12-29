@@ -51,7 +51,7 @@ WITH
 
     ,criar_chave AS(
         SELECT
-            id_venda||id_produto AS sk_venda_detalhe
+            id_venda||id_produto AS sk_venda_produto
             ,*
         FROM join_tabelas       
     )

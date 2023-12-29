@@ -38,6 +38,10 @@ models:
     example:
       materialized: view
 
+    marts:
+      +materialized: table
+      +schema: dw_adventure_works
+
 
 seeds:
   my_new_project: # <-- Name of the project. If you renamed your project you have to change this as well
