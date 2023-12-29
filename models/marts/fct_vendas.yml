@@ -29,6 +29,9 @@ models:
       
       - name: id_motivo
         description: Identificador do motivo
+      
+      - name: pessoa_nome_completo
+        description: Nome completo da pessoa, formado pelo nome + sobrenome
 
       - name: qtde_produto
         description: Qtde de produtos comprados (refere-se somente ao respectivo produto da linha)
