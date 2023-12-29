@@ -99,8 +99,16 @@ WITH
             ,valor_total/(qtde_motivos_por_venda_produto*qtde_produto_por_venda) AS valor_total_parc
             FROM contagem_duplicacoes
     )
+    ,totais_venda_produto AS (
+        SELECT 
+            *
+            ,SUM(qtde_produto_parc) OVER (PARTITION BY sk_venda_produto) * SUM(preco_unitario_parc) OVER (PARTITION BY sk_venda_produto) AS valor_total_negociado_venda_produto
+            ,(SUM(qtde_produto_parc) OVER (PARTITION BY sk_venda_produto) * SUM(preco_unitario_parc) OVER (PARTITION BY sk_venda_produto)) - (1- SUM (desconto_preco_unitario_parc) OVER (PARTITION BY sk_venda_produto)) AS valor_total_negociado_liquido_venda_produto
+            ,ROW_NUMBER() OVER (PARTITION BY sk_venda_produto ORDER BY id_motivo) AS motivo_index
+        FROM deduplicacao_valores
+    )
     
 
 
 
-    SELECT * FROM deduplicacao_valores
+    SELECT * FROM totais_venda_produto

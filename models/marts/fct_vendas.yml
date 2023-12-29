@@ -98,3 +98,12 @@ models:
 
       - name: valor_total_parc
         description: Valor total da venda, soma de subtotal + taxa + frete (Considera a contribuição de cada linha no total da venda/produto). Deve ser usado ao somar essa coluna individualmente.
+
+      - name: valor_total_negociado_venda_produto
+        description: Granularidade venda-produto. Caso tenha mais de 1 motivo, aparecerá mais de 1 vez. Cuidado ao somar. Nesse caso, basta usar o motivo_index = 1 para contabilizar de forma distinta
+
+      - name: valor_total_negociado_liquido_venda_produto
+        description: Granularidade venda-produto. Caso tenha mais de 1 motivo, aparecerá mais de 1 vez. Cuidado ao somar. Nesse caso, basta usar o motivo_index = 1 para contabilizar de forma distinta
+
+      - name: motivo_index
+        description: Ordena os motivos da venda-produto de forma crescente.
