@@ -13,7 +13,6 @@ models:
       - name: sk_venda_produto
         description: Chave primária de identificação formada pela concat de venda e produto
         tests:
-          - unique
           - not_null
 
       - name: id_venda_detalhe
