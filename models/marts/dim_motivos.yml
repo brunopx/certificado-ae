@@ -1,0 +1,25 @@
+version: 2
+
+models:
+  - name: dim_motivos
+    description: "Dimensão: motivos, traz o motivo das vendas da AW. Uma mesma venda pode ter mais de 1 motivo"
+    columns:
+      - name: pk_venda_motivo
+        description: Chave primária de concat id_venda + id_motivo
+        tests:
+          - unique
+          - not_null
+
+      - name: id_venda
+        description: Id da venda
+
+      - name: id_motivo
+        description: Id do motivo da venda
+
+      - name: motivo
+        description: Nome do motivo da venda
+
+      - name: tipo_motivo
+        description: Categoria do motivo da venda
+
+      

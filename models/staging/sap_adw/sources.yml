@@ -97,3 +97,18 @@ sources:
             tests:
               - unique
               - not_null
+      - name: salesreason
+        description: Tabela de Motivos de Vendas da AW.
+        columns:
+          - name: salesreasonid
+            description: ID da venda-produto deve ser único e não nulo.
+            tests:
+              - unique
+              - not_null
+      - name: salesorderheadersalesreason
+        description: Tabela de Motivos de Vendas da AW.
+        columns:
+        - name: salesorderid
+          description: ID da venda-produto deve ser não nulo. Não tem como ser único dado que cada venda pode ter mais de 1 motivo.
+          tests:
+            - not_null
