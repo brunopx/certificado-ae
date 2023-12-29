@@ -32,6 +32,7 @@ WITH
             ,int_vendas_detalhe.id_cliente
             ,int_vendas_detalhe.id_produto
             ,dim_motivos.id_motivo
+            ,dim_clientes.pessoa_nome_completo
             -- ,int_vendas_detalhe.id_cartao
             -- ,int_vendas_detalhe.id_endereco_fatura
             -- ,int_vendas_detalhe.id_endereco_entrega
